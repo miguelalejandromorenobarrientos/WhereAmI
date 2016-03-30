@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Geolocation, Coordinates, Distances</title>
+    <meta name="description" content="Get latitude and longitude from a location using Google Maps Api">
+    <meta name="keywords" content="longitude, latitude, Google Maps, address, Miguel Alejandro Moreno Barrientos">
+    <meta name="author" content="Miguel Alejandro Moreno Barrientos">
+    <meta name="robots" content="index, nofollow">
+    <meta name="publisher" content="Miguel Alejandro Moreno Barrientos" />
+    <meta name="copyright" content="Miguel Alejandro Moreno Barrientos" />
+    <meta name="distribution" content="Global" />
+    <meta name="audience" content="all" />
+
+    <link rel="shortcut icon" href="earth.png">
+    <link rel="stylesheet" href="WhereAmI.css">
+	<script src="WhereAmI.js"></script>
+</head>
+
+<body>
+
+<header>
+	<div id="htext">Geolocation, Coordinates, Distances</div>
+</header>
+
+<main>
+
+    <!-- address inputs -->
+    <table id="inputTable">
+    	<tr>
+            <td>
+            	<input type="button" value="Distance" onclick="distanceHandler()" title="Haversine distance"/><br/>
+                <span id="spanResult"></span>
+            </td>
+            <td>
+            	<input type="button" value="Get own position" onclick="ownPositionHandler()" title="Browser geolocation"/>
+            </td>
+            <td>
+            	<input type="button" value="Antipodes" onclick="antipodesHandler()" title="Change selected coords to antipodes"/>
+            </td>
+            <td>
+            	<input type="button" value="Reset" onclick="resetHandler()" title="Reset page"/>
+            </td>
+        </tr>        
+    	<tr>
+        	<td colspan="4">
+            	<div class="inputAddress">
+                    <input type="text"
+                        id="startAddress"
+                        placeholder="insert start address (e.g. 'Spain, Cordoba')..." 
+                        size="50" 
+                        title="start address"
+                        onFocus="focusHandler(this)"
+                        onkeyup="introKeyHolder(event)"/>
+                </div>
+	          	<input type="button" value="Go to Google Maps" onClick="goToGoogleHandler(document.getElementById('startAddress'))"/>
+			</td>
+        </tr>
+    	<tr>
+        	<td colspan="3">
+            	<div class="inputAddress">
+                    <input type="text"
+                        id="destAddress"
+                        placeholder="insert destination address..."
+                        size="50"
+                        title="destine address"
+                        onFocus="focusHandler(this)"
+                        onkeyup="introKeyHolder(event)"/>
+                </div>
+	           	<input type="button" value="Go to Google Maps" onClick="goToGoogleHandler(document.getElementById('destAddress'))"/>
+            </td>
+        </tr>
+    </table>
+    
+	<!-- Google search results -->
+    <div id="divResults"></div>
+    
+</main>
+
+</body>
+
+</html>
